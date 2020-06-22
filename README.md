@@ -16,6 +16,8 @@ Stateless. This is baked into the design of Docker. If you want to keep state, y
 
 # Parts of Docker
 ## Dockerfile
+### Layers
+Docker images, like ogres, have many layers.
 ## Docker Image
 ## Docker CLI
 ### `docker build`
@@ -26,7 +28,11 @@ Stateless. This is baked into the design of Docker. If you want to keep state, y
 You can use the command `docker exec -it <container name> /bin/bash` to get a bash shell in the container, allowing you to run commands from within the container as if it was a full-fledged machine. If you know specifically what command you want to execute, you can use `docker exec -it <container name> <command>` to execute whatever command you specify in the container.
 
 # Docker Examples
-1. 
+1. Basic Python app with dependencies
+2. Multi-stage cached Python
+3. Basic Node.js app
+4. Basic Go app
+5. Multi-stage Go app
 
 # Futher reading
 ## Docker Compose

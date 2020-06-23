@@ -1,0 +1,13 @@
+{
+    "name": "docker_node_example",
+    "version": "1.0.0",
+    "description": "A simple Node.js and Express App",
+    "author": "Jacky Zhao <j.zhao2k19@gmail.com>",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "^4.16.1"
+    }
+}

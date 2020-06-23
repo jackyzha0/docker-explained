@@ -96,7 +96,7 @@ You can use the command `docker exec -it <container name> /bin/bash` to get a ba
 
 # 📝 Docker Examples
 1. [Basic Python app with dependencies](1-basic-python/)
-3. [Basic Node.js app](2-basic-node)
+3. [Node.js and Express app](2-basic-node)
 4. [Multi-stage Go app](3-multi-stage-go)
 
 # 📚 Futher reading

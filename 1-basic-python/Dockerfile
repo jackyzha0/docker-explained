@@ -8,4 +8,4 @@ COPY app.py /
 RUN pip install flask
 
 # Tell Docker how to start your script
-CMD [ "python", "./app.py" ]
+ENTRYPOINT [ "python", "./app.py" ]

@@ -24,7 +24,7 @@ Successfully tagged hello-world:latest
 $
 ```
 
-To verify we built the images and Docker can see it, lets do `docker image ls`
+To verify we built the image and Docker can see it, lets do `docker image ls`
 
 ```bash
 $ docker image ls

@@ -59,6 +59,8 @@ Now, let's go over a few basic CLI commands that you'll probably be using as you
 
 To built an image, you can do `docker build . -t <name-of-image>` which tells Docker to look in the current directory for a file called `Dockerfile` and to follow the instructions inside to build an image. After doing so, tag the image so we can easily find it later. Docker image tags let you version your images as well. Say you wanted to build a v1 for your image, you would do `docker build . -t <name-of-image>:v1`. If you have a different name for your Dockerfile, you can also refer to it using the `-f` flag like so: `docker build . -t <name-of-image> -f <name-of-dockerfile>`
 
+More info can be found here: https://docs.docker.com/engine/reference/commandline/build/
+
 ### `docker image ls`
 > How do I get a list of all the images I've built?
 
@@ -71,17 +73,21 @@ image2                     <none>              c99ac06cf60a        2 days ago   
 ...
 ```
 
+More info can be found here: https://docs.docker.com/engine/reference/commandline/image_ls/
+
 ### `docker run`
 > How do I create a container from an image?
 
+Now that you've built an image, you can just run it by doing `docker run <name-of-container>:<version>`. More often than not, you can just use the latest version of the image, `docker run <name-of-container>:latest`. However, certain applications (like servers) need to listen on specific ports. By default, Docker doesn't allow containers to use ports on your local machine, but you can allow this by specifying ports using the `-p` flag, `docker run -p <host-port>:<container-port> <name-of-container>`. If your container listens on port 3000, but you want it to appear as port 5000 on your local machine, it would look like `docker run -p 5000:3000 <name-of-container>`
+
+If you want to run your container in the background in a detached manner, you can just add the `-d` flag.
+
+More info can be found here: https://docs.docker.com/engine/reference/commandline/run/
 
 ### `docker ps`
 > How do I figure out what containers are currently running?
 
 You can get a list of currently running containers by doing `docker ps`, which will give you each container running along with details about its Container ID, what image it was created from, when it was created, as well as which ports are open.
-
-### `docker kill`
-> How do I kill a running container?
 
 ### `docker exec`
 > How do I run a command inside a container?
@@ -99,9 +105,40 @@ You can use the command `docker exec -it <container name> /bin/bash` to get a ba
 These topics will not be talked about within this repository, but I've added a few resources I've found helpful in my understanding of each of them.
 
 ## Docker Compose
+Docker Compose is a tool that lets you start multiple Docker containers together and configure how they interact.
+* https://docs.docker.com/compose/
+* https://github.com/docker/compose
+
 ## Kubernetes and Microservices
+mIcRoSerViCeS you may hear them say. What's all the hype about? Basically, its the [single responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) but applied to services. This means that each responsibility should, ideally, be split out into its own service and be completely responsible for that one thing. This lends itself really easily to Docker and containers. Kubernetes is a system that makes it really easy to deploy, scale, and manage a bunch of containers, making it near ideal in creating a microservices architecture using Docker.
+* https://microservices.io/
+* https://medium.com/hashmapinc/the-what-why-and-how-of-a-microservices-architecture-4179579423a9
+* https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
+* https://kubernetes.io/docs/tutorials/kubernetes-basics/
+* https://opensource.com/article/17/11/getting-started-kubernetes
+
 ## Deploying to the Cloud
+Now that you got some cool new containers? How do I run them in the Cloud like all the other cool kids? Thankfully, Docker makes this super easy too.
+
 ### Google Cloud Run (GCR)
+> https://cloud.google.com/run
+
+GCR completely manages scaling and deploying your containers for you so you don't need to worry about server management (yay serverless)! Simply upload your images to Google Container Registry, and create a new Cloud Run deployment.
+
+* https://cloud.google.com/run/docs/quickstarts/prebuilt-deploy
+* https://cloud.google.com/run/docs/quickstarts/build-and-deploy
+
 ### Google Kubernetes Engine (GKE)
-### Amazon Elastic Container Service (ECS)
-### Azure Functions
+> https://cloud.google.com/kubernetes-engine
+
+Want to run your own Kubernetes cluster and have a lot of money to burn? GKE may be right for you! Other than the price, GKE is super user friendly and makes it really easy to manage and visualize your deployments.
+
+### Amazon Fargate
+> https://aws.amazon.com/fargate/
+
+Think GCR but Bezos.
+
+* https://medium.com/@ariklevliber/aws-fargate-from-start-to-finish-for-a-nodejs-app-9a0e5fbf6361
+
+# Closing
+Thanks for coming to my TED talk. I hope you learned a thing or two about Docker! If you found anything the be incomplete, poorly explained, or just garbage, feel free to open an issue about it (and maybe even make a PR improving it)! If you liked it, feel free to give it a ⭐ so both you and I can feel fuzzy inside.

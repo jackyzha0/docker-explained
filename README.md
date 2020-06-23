@@ -2,6 +2,28 @@
 
 This is a small repo which serves as an example/tutorial walking through what Docker is, why people use it, and a few basic examples.
 
+Table of Contents
+=================
+
+   * [<g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji> Introduction](#-introduction)
+      * [What is Docker?](#what-is-docker)
+      * [What are containers?](#what-are-containers)
+      * [Why containers?](#why-containers)
+      * [Why Docker?](#why-docker)
+   * [<g-emoji class="g-emoji" alias="hammer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f528.png">🔨</g-emoji> Installing Docker](#-installing-docker)
+   * [<g-emoji class="g-emoji" alias="gear" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2699.png">⚙️</g-emoji> Parts of Docker](#️-parts-of-docker)
+      * [Docker Containers](#docker-containers)
+      * [Docker Image](#docker-image)
+         * [Layers](#layers)
+      * [Dockerfile](#dockerfile)
+      * [Docker CLI](#docker-cli)
+   * [<g-emoji class="g-emoji" alias="memo" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png">📝</g-emoji> Docker Examples](#-docker-examples)
+   * [<g-emoji class="g-emoji" alias="books" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png">📚</g-emoji> Further reading](#-further-reading)
+      * [Docker Compose](#docker-compose)
+      * [Kubernetes and Microservices](#kubernetes-and-microservices)
+      * [Deploying to the Cloud](#deploying-to-the-cloud)
+   * [Closing](#closing)
+
 # 👋 Introduction
 ## What is Docker?
 Docker is a tool that makes it really easy to package applications into self-sustaining 'containers'.
@@ -99,7 +121,7 @@ You can use the command `docker exec -it <container name> /bin/bash` to get a ba
 3. [Node.js and Express app](2-basic-node)
 4. [Multi-stage Go app](3-multi-stage-go)
 
-# 📚 Futher reading
+# 📚 Further reading
 These topics will not be talked about within this repository, but I've added a few resources I've found helpful in my understanding of each of them.
 
 ## Docker Compose

@@ -12,9 +12,5 @@ RUN npm install
 # Copy source code and static files
 COPY . .
 
-# Expose port (more for documentation than 
-# anything, still needs -p 3000:3000)
-EXPOSE 3000
-
 # Run app
 CMD [ "node", "app.js" ]

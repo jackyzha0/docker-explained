@@ -33,3 +33,10 @@ Example running on localhost:3000
 ```
 
 Then, you can go to your favourite browser and visit `localhost:3000`, you'll see a nice "Hello World!" from our container! Visit `localhost:3000/doggo` to see a webpage with a cute dog photo :)
+
+# Deploying on Google Cloud Run
+## Tagging the image
+`docker tag <local-image-name> gcr.io/<project-name>/<image-name>:<version>`
+
+## Pushing the image
+`docker push gcr.io/<project-name>/<image-name>:<version>`

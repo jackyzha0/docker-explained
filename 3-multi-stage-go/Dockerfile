@@ -6,21 +6,25 @@ FROM golang:alpine AS builder
 # Enable Go modules
 ENV GO111MODULE=on
 
-# Copy files to image and set current
-# working directory to /app/src
-COPY . /app/src
+# Set working dir to /app/src
 WORKDIR /app/src
 
-# Install Git and network certificates
-RUN apk add git ca-certificates
+# Copy dep files
+COPY go.mod .
+COPY go.sum .
 
 # Install dependencies
 RUN go mod download
 
+# Install Git and network certificates
+RUN apk add git ca-certificates
+
+# Copy source code to image
+COPY . /app/src
+
 # Build image with Go modules and put binary
 # in /go/bin/app
 RUN CGO_ENABLED=0 GOOS=linux go build -o /go/bin/app
-
 
 # --- Stage 2 ---
 # Docker will use the last stage of your Dockerfile as the actual

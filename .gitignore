@@ -1,2 +1,3 @@
 .DS_Store
-2-basic-node/node_modules
+node-express/node_modules
+.idea

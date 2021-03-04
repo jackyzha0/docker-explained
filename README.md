@@ -117,9 +117,9 @@ You can get a list of currently running containers by doing `docker ps`, which w
 You can use the command `docker exec -it <container name> /bin/bash` to get a bash shell in the container, allowing you to run commands from within the container as if it was a full-fledged machine. If you know specifically what command you want to execute, you can use `docker exec -it <container name> <command>` to execute whatever command you specify in the container.
 
 # 📝 Docker Examples
-1. [Basic Python app with dependencies](1-basic-python/)
-3. [Node.js and Express app](2-basic-node)
-4. [Multi-stage Go app](3-multi-stage-go)
+1. [Basic Python app with dependencies](python-flask)
+2. [Node.js and Express app](node-express)
+3. [Multi-stage Go app](go-mux)
 
 # 📚 Further reading
 These topics will not be talked about within this repository, but I've added a few resources I've found helpful in my understanding of each of them.

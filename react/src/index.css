@@ -1,0 +1,13 @@
+/* 
+This is more personal preference than anything but I keep root-level
+CSS styling in this `index.css` file and do component-level styling
+through styled-components. See `components/Header.js` for an example.
+*/
+
+body {
+  font-family: Roboto;
+}
+
+main {
+  margin: 2em 0;
+}

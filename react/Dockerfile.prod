@@ -1,4 +1,5 @@
-# stage 1 - build react app first
+# --- Stage 1 ---
+# React App Build Layer
 FROM node:12.16.1-alpine3.9 as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
@@ -8,10 +9,19 @@ RUN yarn
 COPY . /app
 RUN yarn build
 
-# stage 2 - build the final image and copy the react build files
+# --- Stage 2 ---
+# NGINX Serving Layer
+# React only builds static apps so we need something to serve
+# the files
 FROM nginx:1.17.8-alpine
+
+# copy built bundles
 COPY --from=build /app/build /usr/share/nginx/html
+
+# remove default configuration and provide our own
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
+
+# serve NGINX on :3000
 EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]

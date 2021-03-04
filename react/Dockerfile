@@ -1,18 +1,17 @@
-# pull official base image
+# Base Image
 FROM node:13.12.0-alpine
-
-# set working directory
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
+# Add `/app/node_modules/.bin` to $PATH to allow running yarn
 ENV PATH /app/node_modules/.bin:$PATH
 
-# install app dependencies
+# Install app dependencies
 COPY package.json ./
+COPY yarn.lock ./
 RUN yarn
 
 # add app
-COPY . ./
+COPY . .
 
-# start app
+# Run app
 CMD ["yarn", "start"]
